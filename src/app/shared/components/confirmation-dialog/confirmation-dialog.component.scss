@@ -1,0 +1,126 @@
+@import '../../../../styles/variables';
+
+.confirmation-dialog {
+  min-width: 450px;
+  max-width: 500px;
+  padding: $spacing-md;
+}
+
+.dialog-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-xl 0 $spacing-lg;
+  text-align: center;
+}
+
+.icon-container {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-lg;
+  box-shadow: $shadow-sm;
+
+  mat-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  &.icon-danger {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: $warn-color;
+  }
+
+  &.icon-warning {
+    background-color: rgba(255, 152, 0, 0.15);
+    color: $warn-color;
+  }
+
+  &.icon-info {
+    background-color: rgba(33, 150, 243, 0.15);
+    color: $primary-color;
+  }
+}
+
+h2[mat-dialog-title] {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+  color: $text-primary;
+  letter-spacing: -0.5px;
+}
+
+mat-dialog-content {
+  padding: 0 $spacing-xl $spacing-xl;
+  text-align: center;
+}
+
+.dialog-message {
+  font-size: 15px;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 400px;
+}
+
+mat-dialog-actions {
+  padding: $spacing-lg $spacing-xl $spacing-xl;
+  gap: $spacing-md;
+  justify-content: flex-end;
+
+  button {
+    min-width: 110px;
+    height: 44px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: $border-radius-sm;
+    font-size: 14px;
+  }
+
+  button[mat-button] {
+    color: $text-secondary;
+  }
+
+  button[mat-raised-button] {
+    box-shadow: $shadow-button;
+  }
+}
+
+@media (max-width: 768px) {
+  .confirmation-dialog {
+    min-width: 300px;
+    max-width: 100%;
+  }
+
+  .icon-container {
+    width: 56px;
+    height: 56px;
+
+    mat-icon {
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  h2[mat-dialog-title] {
+    font-size: 20px;
+  }
+
+  .dialog-message {
+    font-size: 14px;
+  }
+
+  mat-dialog-actions {
+    flex-direction: column-reverse;
+
+    button {
+      width: 100%;
+    }
+  }
+}

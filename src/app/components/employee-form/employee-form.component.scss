@@ -1,0 +1,123 @@
+@use '../../../styles/variables' as *;
+
+.employee-form-container {
+  padding: $spacing-xl 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card {
+  width: 100%;
+  box-shadow: $shadow-md;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm;
+}
+
+mat-card-header {
+  padding: 20px $spacing-lg $spacing-md;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: $spacing-lg;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.back-button {
+  color: $primary-color;
+  transition: all $transition-fast;
+  min-width: 0;
+  &:hover {
+    background-color: $primary-light;
+    transform: translateX(-2px);
+  }
+
+  mat-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: $primary-color;
+  margin: 0;
+  flex: 1;
+}
+
+mat-card-content {
+  padding: 0 $spacing-lg $spacing-lg;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  font-size: 16px;
+}
+
+mat-label {
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $border-color;
+}
+
+button {
+  min-width: 120px;
+  height: 42px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+mat-error {
+  font-size: 12px;
+  margin-top: $spacing-xs;
+}
+
+@media (max-width: 768px) {
+  .employee-form-container {
+    padding: 16px;
+  }
+
+  mat-card-header {
+    padding: 20px 16px 12px;
+  }
+
+  mat-card-content {
+    padding: 0 16px 20px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+
+    button {
+      width: 100%;
+    }
+  }
+}

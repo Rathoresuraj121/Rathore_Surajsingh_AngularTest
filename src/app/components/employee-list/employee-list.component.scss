@@ -1,0 +1,165 @@
+@import '../../../styles/variables';
+
+.employee-list-container {
+  padding: $spacing-xl 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+mat-card {
+  box-shadow: $shadow-md;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+}
+
+mat-card-header {
+  padding: $spacing-lg $spacing-lg 0;
+  background: linear-gradient(135deg, $primary-gradient-start 0%, $primary-gradient-end 100%);
+  color: $white;
+  margin: -16px -16px 0;
+}
+
+mat-card-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: $white;
+  margin: 0;
+  padding: $spacing-md 0;
+}
+
+mat-card-content {
+  padding: $spacing-lg;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 280px;
+
+  ::ng-deep {
+    .mat-mdc-form-field-subscript-wrapper,
+    .mat-mdc-form-field-bottom-align,
+    .mat-mdc-form-field-hint-wrapper {
+      display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+    }
+
+    .mat-mdc-text-field-wrapper {
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+button[mat-raised-button] {
+  height: 48px;
+  min-width: 160px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: $shadow-button;
+
+  mat-icon {
+    margin-right: $spacing-sm;
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-sm;
+}
+
+table {
+  width: 100%;
+  background: $white;
+}
+
+th.mat-header-cell {
+  font-weight: 600;
+  font-size: 14px;
+  color: $gray-800;
+  background-color: $gray-100;
+  padding: $spacing-md;
+}
+
+td.mat-cell {
+  font-size: 14px;
+  padding: $spacing-md;
+}
+
+tr.mat-row:hover {
+  background-color: #f9f9f9;
+  transition: background-color $transition-fast;
+}
+
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: $gray-600;
+  font-size: 16px;
+  background: $gray-50;
+  border-radius: $border-radius-sm;
+  margin-top: 20px;
+
+  p {
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+button[mat-icon-button] {
+  margin: 0 2px;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .employee-list-container {
+    padding: 16px;
+  }
+
+  mat-card-header {
+    padding: 20px 16px 0;
+  }
+
+  mat-card-content {
+    padding: 16px;
+  }
+
+  mat-card-title {
+    font-size: 22px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-field {
+    width: 100%;
+    min-width: auto;
+  }
+
+  button[mat-raised-button] {
+    width: 100%;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+}

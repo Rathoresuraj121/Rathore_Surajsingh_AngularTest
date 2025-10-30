@@ -1,0 +1,16 @@
+@use '@angular/material/prebuilt-themes/indigo-pink.css' as *;
+@use 'styles/variables' as *;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $background-color;
+}
+
+* {
+  box-sizing: border-box;
+}

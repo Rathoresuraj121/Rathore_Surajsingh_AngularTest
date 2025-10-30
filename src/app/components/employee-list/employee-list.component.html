@@ -1,0 +1,83 @@
+<div class="employee-list-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Employee Management System</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="toolbar">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search by Name or Department</mat-label>
+          <input
+            matInput
+            [ngModel]="searchText()"
+            (ngModelChange)="onSearchChange($event)"
+            placeholder="Search..."
+          />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addEmployee()">
+          <mat-icon>add</mat-icon>
+          Add Employee
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table
+          mat-table
+          [dataSource]="filteredEmployees()"
+          matSort
+          matSortActive="salary"
+          [matSortDirection]="sortDirection()"
+          (matSortChange)="sortData($event)"
+          class="mat-elevation-z8"
+        >
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.name }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="department">
+            <th mat-header-cell *matHeaderCellDef>Department</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.department }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="salary">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="after">Salary</th>
+            <td mat-cell *matCellDef="let employee">₹{{ employee.salary.toLocaleString() }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let employee">
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="editEmployee(employee.id)"
+                matTooltip="Edit"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                color="warn"
+                (click)="deleteEmployee(employee.id)"
+                matTooltip="Delete"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+
+      @if (filteredEmployees().length === 0) {
+      <div class="no-data">
+        <p>No employees found</p>
+      </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>
