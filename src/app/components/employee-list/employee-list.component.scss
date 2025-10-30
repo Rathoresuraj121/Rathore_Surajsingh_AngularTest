@@ -24,7 +24,8 @@ mat-card-title {
   font-weight: 600;
   color: $white;
   margin: 0;
-  padding: $spacing-md 0;
+  padding: $spacing-md $spacing-md  $spacing-md ;
+  margin-top: 6px;
 }
 
 mat-card-content {
